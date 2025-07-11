@@ -63,6 +63,10 @@ jobs:
           path: ./dist
       - name: Output contents
         run: ls
+      - name: Install action dependencies
+        run: |
+          cd .github/actions/deploy-s3-javascript
+          npm ci
       - name: Deploy site
         uses: ./.github/actions/deploy-s3-javascript
         env:
@@ -73,14 +77,14 @@ jobs:
           dist-folder: ./dist
           bucket_region: "us-east-1"
 
-  information:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get code
-        uses: actions/checkout@v4
-      - name: Install action dependencies
-        run: |
-          cd .github/actions/deploy-s3-javascript
-          npm ci
-      - name: Run custom action
-        uses: ./.github/actions/deploy-s3-javascript
+  # information:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Get code
+  #       uses: actions/checkout@v4
+  #     - name: Install action dependencies
+  #       run: |
+  #         cd .github/actions/deploy-s3-javascript
+  #         npm ci
+  #     - name: Run custom action
+  #       uses: ./.github/actions/deploy-s3-javascript
