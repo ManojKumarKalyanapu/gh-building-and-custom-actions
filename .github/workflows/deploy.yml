@@ -75,7 +75,7 @@ jobs:
         with:
           bucket: github-custom-action-javascript-s3
           dist-folder: ./dist
-          bucket_region: "us-east-1"
+          # bucket_region: "us-east-1"
 
   # information:
   #   runs-on: ubuntu-latest
