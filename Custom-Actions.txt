@@ -1,0 +1,8 @@
+Building and Using Custom Actions in GitHub Actions:
+What Are Custom Actions?
+Custom actions are reusable components in GitHub Actions workflows. They help encapsulate functionality and logic that can be reused across multiple workflows or repositories.
+
+There are 3 types of custom actions:
+1.JavaScript actions – Built using Node.js, fast and widely used.
+2.Docker container actions – Run inside a container; good for language/runtime-specific tasks.
+3.Composite actions – Combine multiple shell commands or other actions.
