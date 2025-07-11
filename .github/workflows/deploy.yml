@@ -63,13 +63,25 @@ jobs:
           path: ./dist
       - name: Output contents
         run: ls
-      - name: Install action dependencies
-        run: |
-          cd .github/actions/deploy-s3-javascript
-          npm ci
+      # this is for javascriot custom action
+      # - name: Install action dependencies
+      #   run: |
+      #     cd .github/actions/deploy-s3-javascript
+      #     npm ci
+      # - name: Deploy site
+      #   id: deploy
+      #   uses: ./.github/actions/deploy-s3-javascript
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #   with:
+      #     bucket: github-custom-action-javascript-s3
+      #     dist-folder: ./dist
+      # bucket_region: "us-east-1"
+      # this is for docker custom action
       - name: Deploy site
         id: deploy
-        uses: ./.github/actions/deploy-s3-javascript
+        uses: ./.github/actions/deploy-s3-docker
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
